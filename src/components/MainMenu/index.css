@@ -1,0 +1,17 @@
+.main-menu ul{
+    display: flex;
+    justify-content: center;
+}
+
+.main-menu li{
+    margin: 0 .5rem;
+}
+
+.main-menu button {
+    font-size: 2rem;
+    color: var(--mid-green);
+}
+
+.main-menu button.active {
+    color: var(--dark-green);
+}
