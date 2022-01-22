@@ -1,0 +1,10 @@
+.sorted-numbers {
+    font-size: 2rem;
+    max-height: 62vh;
+    max-height: calc(100vh - 240px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

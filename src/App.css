@@ -59,20 +59,23 @@ table {
   --main-yellow: #FFF20D;
 }
 
-.App {
-  text-align: center;
+body {
   background-color: var(--light-green);
-  height: 100vh;
-  overflow: hidden;
   color: var(--dark-green);
   font-family: 'Montserrat', sans-serif;
-  padding: 2.5rem;
+}
+
+.App{
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
+  padding: 2.5rem;
+  overflow: hidden;
 }
 
-input {
+input, button {
   font-family: inherit;
 }
 
@@ -86,15 +89,4 @@ input {
 .btn-clean:focus, .btn-clean:hover{
   border: none;
   outline: none;
-}
-
-.header-logo {
-  position: relative;
-}
-
-.info-right {
-  position: absolute;
-  top: 0;
-  right: -1.5rem;
-  font-size: 1.6rem;
 }

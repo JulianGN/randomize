@@ -17,4 +17,11 @@ export const BigInput = styled.input`
     width: 99%;
     text-align: center;
     outline: unset;
+
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button  {
+        -moz-appearance: none;
+        -webkit-appearance: none; 
+        appearance: none; 
+        margin: 0; 
+    }
 `

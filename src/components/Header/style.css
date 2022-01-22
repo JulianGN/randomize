@@ -1,0 +1,10 @@
+.header-logo {
+    position: relative;
+  }
+  
+  .info-right {
+    position: absolute;
+    top: 0;
+    right: -1.5rem;
+    font-size: 1.6rem;
+  }
