@@ -2,6 +2,7 @@ import { createStore } from "@reduxjs/toolkit";
 
 const initialState = {
     sortedNumbers: [],
+    limitNumber: 50,
 }
 
 function reducer(state = initialState, action){

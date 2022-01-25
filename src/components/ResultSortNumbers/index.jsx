@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 
+import swal from 'sweetalert';
+
 import Header from '../Header';
 import MainMenu from '../MainMenu';
 import { BigBtn } from '../UI'
@@ -9,6 +11,16 @@ import './style.css';
 
 function ResultSortNumbers() {
     const sortNumbers = useSelector(state => state.sortedNumbers);
+
+    function copyNumbers(){
+        if(!sortNumbers.length) return
+
+        const myNumbers = [...sortNumbers].toString().replaceAll(',',', ');       
+
+        navigator.clipboard.writeText(myNumbers)
+
+        swal('Seus ' + sortNumbers.length + ' números foram copiados com sucesso!')
+    }
 
     return (
         <>
@@ -19,7 +31,7 @@ function ResultSortNumbers() {
                         <li key={'li-n'+n}>{n}</li>
                     ))}
                 </ul>
-                <BigBtn className='btn-clean'>copiar</BigBtn>
+                <BigBtn onClick={() => copyNumbers()} className='btn-clean'>copiar<span className='small-numbers'>{sortNumbers.length} números</span></BigBtn>
             </section>
             <MainMenu active="number" />
         </>
