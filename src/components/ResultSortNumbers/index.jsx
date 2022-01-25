@@ -19,7 +19,10 @@ function ResultSortNumbers() {
 
         navigator.clipboard.writeText(myNumbers)
 
-        swal('Seus ' + sortNumbers.length + ' números foram copiados com sucesso!')
+        if(sortNumbers.length === 1)
+            swal('Seu número foi copiado com sucesso!')
+        else
+            swal('Seus ' + sortNumbers.length + ' números foram copiados com sucesso!')
     }
 
     return (
