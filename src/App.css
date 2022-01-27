@@ -90,3 +90,11 @@ input, button {
   border: none;
   outline: none;
 }
+
+@media screen {
+  .App{
+    max-width: 720px;
+    max-height: 1280px;
+    margin: auto;    
+  }
+}

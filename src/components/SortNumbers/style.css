@@ -1,0 +1,19 @@
+.input-container {
+    position: relative;
+}
+
+.btn-numbers {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+}
+
+.btn-numbers:last-child {
+    right: 0;
+}
