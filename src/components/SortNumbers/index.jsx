@@ -30,6 +30,12 @@ function SortNumbers() {
             return
         }
 
+        if(numbers > limitNumber) {
+            swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
+            setNumbers(limitNumber)
+            return
+        }
+
         let _sortedNumbers = [...sortedNumbers];
 
         // TODO testar com Set em vez de Array
