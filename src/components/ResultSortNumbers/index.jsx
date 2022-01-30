@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom";
 
 import swal from 'sweetalert';
 
@@ -11,6 +12,7 @@ import './style.css';
 
 function ResultSortNumbers() {
     const sortNumbers = useSelector(state => state.sortedNumbers);
+    let navigate = useNavigate();
 
     function copyNumbers(){
         if(!sortNumbers.length) return
@@ -34,7 +36,10 @@ function ResultSortNumbers() {
                         <li key={'li-n'+n}>{n}</li>
                     ))}
                 </ul>
-                <BigBtn onClick={() => copyNumbers()} className='btn-clean'>copiar<span className='small-numbers'>{sortNumbers.length} números</span></BigBtn>
+                <div className='grid1_3'>
+                    <BigBtn secondary sizeAuto onClick={() => navigate("../", { replace: true })} className='btn-clean'><i className="fas fa-chevron-left"></i></BigBtn>
+                    <BigBtn onClick={() => copyNumbers()} className='btn-clean'>copiar<span className='small-numbers'>{sortNumbers.length} números</span></BigBtn>
+                </div>
             </section>
             <MainMenu active="number" />
         </>

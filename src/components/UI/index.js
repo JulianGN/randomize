@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const BigBtn = styled.button`
-    background: var(--main-yellow);
-    width: 100%;
+    background: ${props => props.secondary ? 'var(--dark-green)' : 'var(--main-yellow)'};
+    color: ${props => props.secondary ? 'var(--lighter)' : 'inherit'};
+    width: ${props => props.sizeAuto ? 'auto' : '100%'};
     min-height: 65px;
     font-size: 1.75rem;
     margin: 1rem 0;

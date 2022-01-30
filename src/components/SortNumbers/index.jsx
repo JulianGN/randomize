@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ import { BigBtn, BigInput } from '../UI'
 import './style.css'
 
 function SortNumbers() {
-    const [numbers, setNumbers] = useState(0);
+    const numbers = useSelector(state => state.numbers);
     const limitNumber = useSelector(state => state.limitNumber);
 
     let navigate = useNavigate();
@@ -32,7 +32,7 @@ function SortNumbers() {
 
         if(numbers > limitNumber) {
             swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
-            setNumbers(limitNumber)
+            dispatch({ type: 'updateNumbers', payload: limitNumber })
             return
         }
 
@@ -47,18 +47,18 @@ function SortNumbers() {
                 i--
         }
 
-        dispatch({ type: 'sortNumbers', payload: _sortedNumbers })
+        dispatch({ type: 'sortNumbers', payload: _sortedNumbers.sort((a, b) => a - b) })
         navigate("../numbers", { replace: true });       
     }
 
     function addNumber() {
         if(numbers < limitNumber)
-            setNumbers(numbers + 1)
+            dispatch({ type: 'updateNumbers', payload: numbers + 1 })
     }
 
     function removeNumber() {
         if(numbers > 0)
-            setNumbers(numbers - 1)
+            dispatch({ type: 'updateNumbers', payload: numbers - 1 })
     }
 
     return (
@@ -68,12 +68,12 @@ function SortNumbers() {
                 <h1>Quero sortear...</h1>
                 <div className='input-container'>
                     <button onClick={() => removeNumber()} className='btn-clean btn-numbers'>-</button>
-                    <BigInput onChange={(e) => setNumbers(+e.target.value)} value={numbers} type="number" id="random-input" name="random-input" autoComplete="off" autoFocus maxLength={limitNumber.toString().length} min={0} max={limitNumber} />
+                    <BigInput onChange={(e) => dispatch({ type: 'updateNumbers', payload: +e.target.value})} value={numbers} type="number" id="random-input" name="random-input" autoComplete="off" autoFocus maxLength={limitNumber.toString().length} min={0} max={limitNumber} />
                     <button onClick={() => addNumber()} className='btn-clean btn-numbers'>+</button>
                 </div>
                 <p>
                     <BigBtn className='btn-clean' onClick={() => doSortNumbers()}>sortear</BigBtn>
-                    <button className='btn-clean'><i className="fas fa-edit"></i></button>
+                    <button onClick={() => navigate("../filter-numbers", { replace: true })} className='btn-clean'><i className="fas fa-edit"></i></button>
                     <span>de 0 a {limitNumber}</span>
                 </p>
             </section>

@@ -1,0 +1,19 @@
+.number-filters h2{
+    margin: 2rem 0 .5rem 0;
+}
+
+span.absolute-center {
+    position: absolute;
+    bottom: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .85rem;
+}
+
+.btn-rounded:first-of-type {
+    margin-left: 0;
+}
+
+.btn-rounded:last-of-type {
+    margin-right: 0;
+}
