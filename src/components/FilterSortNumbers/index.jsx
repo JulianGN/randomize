@@ -105,7 +105,7 @@ function FilterSortNumbers() {
         selectLoto(false);
         selectQuina(false);
 
-        switchState.setState(true)
+        switchState.setState(false)
 
         dispatch({ type: 'updateNumbers', payload: 6 })
         dispatch({ type: 'updateLimit', payload: 60 });
@@ -116,7 +116,7 @@ function FilterSortNumbers() {
         selectLoto(true);
         selectQuina(false);
 
-        switchState.setState(true)
+        switchState.setState(false)
 
         dispatch({ type: 'updateNumbers', payload: 5 })
         dispatch({ type: 'updateLimit', payload: 25 });
@@ -127,7 +127,7 @@ function FilterSortNumbers() {
         selectLoto(false);
         selectQuina(true);
 
-        switchState.setState(true)
+        switchState.setState(false)
 
         dispatch({ type: 'updateNumbers', payload: 5 })
         dispatch({ type: 'updateLimit', payload: 80 });
