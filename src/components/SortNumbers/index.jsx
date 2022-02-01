@@ -12,11 +12,13 @@ import './style.css'
 
 function SortNumbers() {
     const numbers = useSelector(state => state.numbers);
+    const withZero = useSelector(state => state.withZero);
     const limitNumber = useSelector(state => state.limitNumber);
 
     let navigate = useNavigate();
     const dispatch = useDispatch();  
 
+    // TODO criar apenas um método para utilizar aqui e no SortNumbers
     const sortedNumbers = [];
 
     function doSortNumbers() {
@@ -26,12 +28,12 @@ function SortNumbers() {
         }
         
         if(numbers < 0) {
-            swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
+            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
             return
         }
 
         if(numbers > limitNumber) {
-            swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
+            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
             dispatch({ type: 'updateNumbers', payload: limitNumber })
             return
         }
@@ -40,7 +42,13 @@ function SortNumbers() {
 
         // TODO testar com Set em vez de Array
         for(let i = 0; i < numbers; i++) {
+            
             const resultado = Math.round(Math.random() * limitNumber)
+            
+            if(!withZero && resultado === 0){
+                i--
+                continue
+            }               
             if(!_sortedNumbers.some((r) => r == resultado))
                 _sortedNumbers.push(resultado)
             else
@@ -74,7 +82,7 @@ function SortNumbers() {
                 <p>
                     <BigBtn className='btn-clean' onClick={() => doSortNumbers()}>sortear</BigBtn>
                     <button onClick={() => navigate("../filter-numbers", { replace: true })} className='btn-clean'><i className="fas fa-edit"></i></button>
-                    <span>de 0 a {limitNumber}</span>
+                    <span>de {withZero ? '0' : '1'} a {limitNumber}</span>
                 </p>
             </section>
             <MainMenu active="number" />

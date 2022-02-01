@@ -4,6 +4,7 @@ const initialState = {
     sortedNumbers: [],
     numbers: 0,
     limitNumber: 50,
+    withZero: true,
 }
 
 function reducer(state = initialState, action){
@@ -13,7 +14,9 @@ function reducer(state = initialState, action){
         case 'updateNumbers':
             return { ...state, numbers: action.payload }  
         case 'updateLimit':
-            return { ...state, limitNumber: action.payload }                                  
+            return { ...state, limitNumber: action.payload }  
+        case 'updateZero':
+            return { ...state, withZero: action.payload }              
         default:
             return state;
     }

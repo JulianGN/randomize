@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
+import { Checkbox, Switch, useCheckboxState } from 'pretty-checkbox-react';
+import '@djthoms/pretty-checkbox';
 import swal from 'sweetalert';
 
 import Header from '../Header';
@@ -13,12 +15,25 @@ import './style.css';
 function FilterSortNumbers() {
     const numbers = useSelector(state => state.numbers);
     const limitNumber = useSelector(state => state.limitNumber);
+    const withZero = useSelector(state => state.withZero);
     let navigate = useNavigate();
     const dispatch = useDispatch();  
-
+    const switchState = useCheckboxState();
+    
+    const [init, setInit] = useState(0)
     const [btnMega, selectMega] = useState(false);
     const [btnLoto, selectLoto] = useState(false);
     const [btnQuina, selectQuina] = useState(false);
+    
+    React.useEffect(() => {  
+        if(!init && withZero){
+            setInit(init + 1)
+            switchState.setState(true)
+            return
+        }
+        dispatch({ type: 'updateZero', payload: switchState.state });
+        
+    }, [switchState.state]);
 
     function addNumber() {
         if(numbers < limitNumber)
@@ -53,12 +68,12 @@ function FilterSortNumbers() {
         }
         
         if(numbers < 0) {
-            swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
+            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
             return
         }
 
         if(numbers > limitNumber) {
-            swal(`Por favor, escolha um número entre 0 e ${limitNumber}`)
+            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
             dispatch({ type: 'updateNumbers', payload: limitNumber })
             return
         }
@@ -67,7 +82,14 @@ function FilterSortNumbers() {
 
         // TODO testar com Set em vez de Array
         for(let i = 0; i < numbers; i++) {
+            
             const resultado = Math.round(Math.random() * limitNumber)
+            
+            if(!withZero && resultado === 0){
+                i--
+                continue
+            }               
+
             if(!_sortedNumbers.some((r) => r == resultado))
                 _sortedNumbers.push(resultado)
             else
@@ -83,6 +105,8 @@ function FilterSortNumbers() {
         selectLoto(false);
         selectQuina(false);
 
+        switchState.setState(true)
+
         dispatch({ type: 'updateNumbers', payload: 6 })
         dispatch({ type: 'updateLimit', payload: 60 });
     }
@@ -91,6 +115,8 @@ function FilterSortNumbers() {
         selectMega(false);
         selectLoto(true);
         selectQuina(false);
+
+        switchState.setState(true)
 
         dispatch({ type: 'updateNumbers', payload: 5 })
         dispatch({ type: 'updateLimit', payload: 25 });
@@ -101,11 +127,11 @@ function FilterSortNumbers() {
         selectLoto(false);
         selectQuina(true);
 
+        switchState.setState(true)
+
         dispatch({ type: 'updateNumbers', payload: 5 })
         dispatch({ type: 'updateLimit', payload: 80 });
-    }
-
-    
+    }    
 
     return (
         <>
@@ -134,6 +160,9 @@ function FilterSortNumbers() {
                         </div>
                     </div>
 
+                    <Checkbox className='checkbox-container' {...switchState}  color="primary">
+                        {switchState.state ? 'Zero incluído' : 'Incluir zero?'}
+                    </Checkbox>
                 </div>
                 <div className='grid1_3'>
                     <BigBtn secondary sizeAuto onClick={() => navigate("../", { replace: true })} className='btn-clean'><i className="fas fa-chevron-left"></i></BigBtn>
