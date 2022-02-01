@@ -2,7 +2,7 @@ import { createStore } from "@reduxjs/toolkit";
 
 const initialState = {
     sortedNumbers: [],
-    numbers: 0,
+    numbers: 1,
     limitNumber: 50,
     withZero: true,
 }
