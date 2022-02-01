@@ -121,11 +121,13 @@ button {
   border: 1px solid var(--dark-green);
 }
 
-.pretty.p-switch.p-fill.checkbox-container input:checked~.state.p-primary:before, .pretty.p-switch.p-fill .state label:after {
+/* Pretty Checkbox React */
+
+.pretty.p-switch.p-fill.checkbox-container input:checked~.state.p-primary:before, .pretty.p-switch.p-fill .state label:after, .pretty.p-default.checkbox-container input:checked~.state.p-primary label:after {
   background-color: var(--dark-green) !important;
 }
 
-.pretty.p-switch input:checked~.state.p-primary:before, .pretty.p-switch .state:before {
+.pretty.p-switch input:checked~.state.p-primary:before, .pretty.p-switch .state:before, .pretty .state label:before {
   border-color: var(--dark-green) !important;
 }
 
