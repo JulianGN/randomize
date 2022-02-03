@@ -145,7 +145,7 @@ function FilterSortNumbers() {
 
                     <h2>ou crie sua combinação</h2>
                     <div className='grid1_1'>
-                        <div className='input-container half'>
+                        <div className='container half'>
                             <button onClick={() => removeNumber()} className='btn-clean btn-numbers'>-</button>
                             <BigInput onChange={(e) => dispatch({ type: 'updateNumbers', payload: +e.target.value })} value={numbers} type="number" id="random-input" name="random-input" autoComplete="off" autoFocus maxLength={limitNumber.toString().length} min={0} max={limitNumber} />
                             <button onClick={() => addNumber()} className='btn-clean btn-numbers'>+</button>
@@ -153,7 +153,7 @@ function FilterSortNumbers() {
                         
                         <span className='absolute-center'>em</span>
 
-                        <div className='input-container half'>
+                        <div className='container half'>
                             <button onClick={() => removeLimit()} className='btn-clean btn-numbers'>-</button>
                             <BigInput onChange={(e) => dispatch({ type: 'updateLimit', payload: +e.target.value })} value={limitNumber} type="number" id="random-input" name="random-input" autoComplete="off" autoFocus maxLength={limitNumber.toString().length} min={0} max={limitNumber} />
                             <button onClick={() => addLimit()} className='btn-clean btn-numbers'>+</button>

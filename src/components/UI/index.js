@@ -25,4 +25,8 @@ export const BigInput = styled.input`
         appearance: none; 
         margin: 0; 
     }
+
+    &[type="text"]{
+        font-size: 3rem;  
+    }
 `

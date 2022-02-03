@@ -74,7 +74,7 @@ function SortNumbers() {
             <Header />
             <section>
                 <h1>Quero sortear...</h1>
-                <div className='input-container'>
+                <div className='container'>
                     <button onClick={() => removeNumber()} className='btn-clean btn-numbers'>-</button>
                     <BigInput onChange={(e) => dispatch({ type: 'updateNumbers', payload: +e.target.value})} value={numbers} type="number" id="random-input" name="random-input" autoComplete="off" autoFocus maxLength={limitNumber.toString().length} min={0} max={limitNumber} />
                     <button onClick={() => addNumber()} className='btn-clean btn-numbers'>+</button>

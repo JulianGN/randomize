@@ -80,11 +80,11 @@ input, button {
   font-family: inherit;
 }
 
-.input-container {
+.container {
   position: relative;
 }
 
-.input-container.half input {
+.container.half input {
   font-size: 3rem;
 }
 
