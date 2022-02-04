@@ -22,10 +22,10 @@ function ResultGroups() {
                     
                 <div className='container groups'>
                     {groups.map((group, i) => (
-                        <ul>
+                        <ul key={'group-' + i}>
                             <h2>Grupo {i + 1}</h2>
-                            {group.map((user) => (
-                                <li>{user}</li>
+                            {group.map((user, j) => (
+                                <li key={'user-list-' + j}>{user}</li>
                             ))}
                         </ul>
                     ))}
