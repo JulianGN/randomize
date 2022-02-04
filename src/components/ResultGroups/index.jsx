@@ -13,15 +13,22 @@ import './style.css'
 function ResultGroups() {
     let navigate = useNavigate();
     const dispatch = useDispatch();  
+    const groups = useSelector(state => state.groups)
 
     return (
         <>
             <Header />
             <section>
                     
-                <h1>resultado aqui</h1>
-                <div className='container'>
-                    <p>resultado aqui</p>
+                <div className='container groups'>
+                    {groups.map((group, i) => (
+                        <ul>
+                            <h2>Grupo {i + 1}</h2>
+                            {group.map((user) => (
+                                <li>{user}</li>
+                            ))}
+                        </ul>
+                    ))}
                 </div>
 
                 <div className='grid1_3'>

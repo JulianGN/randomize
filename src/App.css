@@ -52,6 +52,31 @@ table {
 
 /* ************ */
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--dark-green) var(--light-green);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--light-green);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--dark-green);
+    border-radius: 2px;
+    border: 5px solid var(--light-green);
+  }
+
+
+/* ************ */
+
 :root{
   --dark-green: #00290D;
   --mid-green: #269075;

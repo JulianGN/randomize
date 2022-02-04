@@ -27,7 +27,28 @@ function ConfigGroups() {
     }
 
     function doSortGroups(){
-        // Group logic
+        const groups = Array();
+
+        for(let i = 0; i < numberGroups; i++){
+            groups.push([])
+        }
+
+        const namesToSort = [...names];
+        let iGroup = 0;
+        
+        for(let i = 0; i < names.length; i++){
+            if(iGroup >= numberGroups)
+                iGroup = 0
+
+            const iNames = Math.floor(Math.random() * namesToSort.length)
+
+            const sortedName = namesToSort.splice(iNames, 1)
+            groups[iGroup].push(sortedName.toString())            
+
+            iGroup++
+        }
+        
+        dispatch({ type: 'updateGroups', payload: groups })
         navigate("../result-groups", { replace: true });  
     }
 

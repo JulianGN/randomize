@@ -13,7 +13,8 @@ import './style.css'
 function SortGroups() {
     let navigate = useNavigate();
     const dispatch = useDispatch();  
-    const [names, setNames] = useState([]);
+    const namesSaved = useSelector(state => state.names)
+    const [names, setNames] = useState(namesSaved);
     const [currentName, setCurrentName] = useState('')
     const [overflow, setOverflow] = useState(false)
 
