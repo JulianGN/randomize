@@ -20,12 +20,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SortNumbers />} />
-          <Route path="numbers" element={<ResultSortNumbers />} />
-          <Route path="filter-numbers" element={<FilterSortNumbers />} />
-          <Route path="groups" element={<SortGroups />} />
-          <Route path="config-groups" element={<ConfigGroups />} />
-          <Route path="result-groups" element={<ResultGroups />} />
+          <Route exact path="/" element={<SortNumbers />} />
+          <Route exact path="/numbers" element={<ResultSortNumbers />} />
+          <Route exact path="/filter-numbers" element={<FilterSortNumbers />} />
+          <Route exact path="/groups" element={<SortGroups />} />
+          <Route exact path="/config-groups" element={<ConfigGroups />} />
+          <Route exact path="/result-groups" element={<ResultGroups />} />
         </Routes>
       </BrowserRouter>
     </div>
