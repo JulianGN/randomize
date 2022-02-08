@@ -38,7 +38,7 @@ function ResultSortNumbers() {
                 </ul>
                 <div className='grid1_3'>
                     <BigBtn secondary sizeAuto onClick={() => navigate("../", { replace: true })} className='btn-clean'><i className="fas fa-chevron-left"></i></BigBtn>
-                    <BigBtn onClick={() => copyNumbers()} className='btn-clean'>copiar<span className='small-numbers'>{sortNumbers.length} números</span></BigBtn>
+                    <BigBtn onClick={() => copyNumbers()} className='btn-clean'>copiar<span className='small-numbers'>{sortNumbers.length} {sortNumbers.length > 1 ? 'números' : 'número'}</span></BigBtn>
                 </div>
             </section>
             <MainMenu active="number" />

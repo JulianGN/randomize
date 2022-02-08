@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,11 @@ function ConfigGroups() {
     const dispatch = useDispatch();  
     const names = useSelector(state => state.names)
     const [numberGroups, setNumberGroups] = useState(2);
+
+    useEffect(() => {
+        if(!names.length)
+            navigate("../groups", { replace: true }); 
+    }, []);
 
     function addNumber() {
         if(numberGroups < names.length)

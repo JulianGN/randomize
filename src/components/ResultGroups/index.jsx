@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,25 @@ function ResultGroups() {
     let navigate = useNavigate();
     const dispatch = useDispatch();  
     const groups = useSelector(state => state.groups)
+
+    useEffect(() => {
+      if(!groups.length)
+          navigate("../groups", { replace: true }); 
+    }, []);
+    
+
+    function copyGroups(){
+        if(!groups.length) return
+
+        const myGroups = [...groups]
+        let stringGroups = '';
+        // .toString().replaceAll(',',', ');
+        myGroups.forEach((g) => stringGroups += g.toString().replaceAll(',',', ') + '\n')       
+
+        navigator.clipboard.writeText(stringGroups)
+
+        swal('Seus ' + myGroups.length + ' grupos foram copiados com sucesso!')
+    }
 
     return (
         <>
@@ -33,7 +52,7 @@ function ResultGroups() {
 
                 <div className='grid1_3'>
                     <BigBtn secondary sizeAuto onClick={() => navigate("../config-groups", { replace: true })} className='btn-clean'><i className="fas fa-chevron-left"></i></BigBtn>
-                    <BigBtn sizeAuto className='btn-clean'>copiar</BigBtn>
+                    <BigBtn onClick={() => copyGroups()} sizeAuto className='btn-clean'>copiar</BigBtn>
                 </div>
 
             </section>
