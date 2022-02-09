@@ -13,6 +13,7 @@ import FilterSortNumbers from './components/FilterSortNumbers'
 import SortGroups from './components/SortGroups'
 import ConfigGroups from './components/ConfigGroups'
 import ResultGroups from './components/ResultGroups'
+import SortPaperScissorsRock from './components/SortPaperScissorsRock'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/groups" element={<SortGroups />} />
           <Route exact path="/config-groups" element={<ConfigGroups />} />
           <Route exact path="/result-groups" element={<ResultGroups />} />
+          <Route exact path="/paper-scissors-rock" element={<SortPaperScissorsRock />} />
         </Routes>
       </BrowserRouter>
     </div>

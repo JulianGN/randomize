@@ -1,0 +1,12 @@
+.no-margin {
+    margin: 0 -2.5rem;
+}
+
+h1{
+    margin-bottom: 1.5em;
+}
+
+h2{
+    margin-top: .5em;
+    font-weight: bold;
+}
