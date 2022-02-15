@@ -31,7 +31,10 @@ function ResultGroups() {
 
         navigator.clipboard.writeText(stringGroups)
 
-        swal('Seus ' + myGroups.length + ' grupos foram copiados com sucesso!')
+        swal({
+            title: 'Seus ' + myGroups.length + ' grupos foram copiados com sucesso!',
+            icon:"success",
+        })
     }
 
     return (

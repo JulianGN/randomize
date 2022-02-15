@@ -63,17 +63,28 @@ function FilterSortNumbers() {
 
     function doSortNumbers() {
         if(!numbers) {
-            swal('Por favor, escolha ao menos um número')
+            swal({
+                title: 'Por favor, escolha ao menos um número',
+                icon:"warning",
+            })
             return
         }
         
         if(numbers < 0) {
-            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
+            swal({
+                title: 'Números inválidos',
+                text: `Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`,
+                icon:"warning",
+            })
             return
         }
 
         if(numbers > limitNumber) {
-            swal(`Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`)
+            swal({
+                title: 'Números inválidos',
+                text: `Por favor, escolha um número entre ${withZero ? '0' : '1'} e ${limitNumber}`,
+                icon:"warning",
+            })
             dispatch({ type: 'updateNumbers', payload: limitNumber })
             return
         }

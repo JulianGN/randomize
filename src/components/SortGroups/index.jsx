@@ -24,7 +24,11 @@ function SortGroups() {
 
         const nameRepeated = names.some((name) => name == currentName)
         if(nameRepeated){
-            swal('Esse nome já está na lista. Escreva outro para que o sorteio ocorra corretamente.')
+            swal({
+                title: 'Nome repetido',
+                text: 'Escreva outro para que o sorteio ocorra corretamente.',
+                icon:"warning",
+            })
             return
         }
 
