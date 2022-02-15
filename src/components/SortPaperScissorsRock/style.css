@@ -10,3 +10,9 @@ h2{
     margin-top: .5em;
     font-weight: bold;
 }
+
+.current-result{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

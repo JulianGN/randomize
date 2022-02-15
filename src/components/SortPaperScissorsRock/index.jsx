@@ -52,8 +52,6 @@ function SortPaperScissorsRock() {
                 <GameBg onClick={() => doSortGame()} image={gameImage}></GameBg>
                 <h2 className='current-result'>{gameResult[gameResult.length - 1]}</h2>
 
-                {/* <BigBtn onClick={() => doSortGroups()} className='btn-clean'>sortear</BigBtn> */}
-
             </section>
             <MainMenu active="game" />
         </>
@@ -63,12 +61,15 @@ function SortPaperScissorsRock() {
 const GameBg = styled.div`
     background-image: url(${props => props.image});
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 45% center;
     height: 70vh;
     max-height: 240px;
     width: 100%;
     transition: .25s;
     cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &:active{
         transform: translateY(-1rem);
